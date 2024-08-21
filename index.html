@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button 
+        onclick="handleInterchange()"
+        style="display:flex; 
+               margin: auto; 
+               margin-top: 5em; 
+               padding: 10px 20px;">
+               Interchange Arrays
+    </button>
+    <script>
+      function inputArray(arrayName) {
+        let arr = [];
+        let length = prompt(`Enter the number of elements for ${arrayName}:`);
+        for (let i = 0; i < length; i++) {
+          let value = prompt(`Enter element ${i + 1} for ${arrayName}:`);
+          arr.push(value);
+        }
+        return arr;
+      }
+
+      function interchangeArrays(arr1, arr2) {
+        let temp = arr1.slice();
+        arr1.length = 0;
+        arr1.push(...arr2);
+        arr2.length = 0;
+        arr2.push(...temp);
+      }
+
+      function handleInterchange() {
+        let array1 = inputArray("Array1");
+        let array2 = inputArray("Array2");
+
+        console.log("Original Array1: ", array1);
+        console.log("Original Array2: ", array2);
+
+        interchangeArrays(array1, array2);
+
+        console.log("Interchanged Array1: ", array1);
+        console.log("Interchanged Array2: ", array2);
+      }
+    </script>
+  </body>
+</html>
